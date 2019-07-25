@@ -3,15 +3,6 @@
 PROMETHEUS_VERSION="2.11.1"
 GRAFANA_VERSION="6.2.5"
 
-wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-$PROMETHEUS_VERSION.linux-amd64.tar.gz
-sudo tar  -C /opt/ -xzvf prometheus-$PROMETHEUS_VERSION.linux-amd64.tar.gz
-wget https://dl.grafana.com/oss/release/grafana-$GRAFANA_VERSION.linux-amd64.tar.gz 
-sudo tar -C /opt/ -xzvf grafana-$GRAFANA_VERSION.linux-amd64.tar.gz
-sudo chgrp -R prashant:prashant /opt/prometheus-$PROMETHEUS_VERSION.linux-amd64
-sudo chgrp -R prashant:prashant /opt/grafana-$GRAFANA_VERSION
-sudo ln -s /opt/prometheus-$PROMETHEUS_VERSION.linux-amd64/prometheus /usr/local/bin/
-sudo ln -s /opt/grafana-$GRAFANA_VERSION.linux-amd64/bin/grafana-server /usr/local/bin/
-
 if [ -e configurations.json ]
 then
     CONFIGURATION=$(cat ./configurations.json)

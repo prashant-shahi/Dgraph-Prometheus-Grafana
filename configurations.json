@@ -2,5 +2,5 @@
 	"job_name": "dgraph",
 	"metrics_path": "/debug/prometheus_metrics",
 	"scrape_interval": "2s",
-	"endpoints": ["localhost:6080", "localhost:8080"]
+	"endpoints": ["localhost:6180", "localhost:6182", "localhost:6183", "localhost:8180", "localhost:8182", "localhost:8183"]
 }
