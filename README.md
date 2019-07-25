@@ -1,6 +1,8 @@
 # Dgraph Prometheus Grafana
 
-Follow the steps below to setup prometheus for your Dgraph cluster :
+## Installation
+
+Follow the steps below to setup prometheus and grafana for your Dgraph cluster :
 
 - Clone this repository and change the directory.
 ```sh
@@ -22,3 +24,31 @@ sudo ./install.sh
 *Note:*
 - *For Dgraph zero, 6080 is the default http endpoint exposing metrics.*
 - *For Dgraph alpha, 8080 is the default http endpoint exposing metrics.*
+
+
+## Running
+
+Follow the steps below to run prometheus :
+
+- Change current directory to prometheus directory:
+```sh
+cd /opt/prometheus*
+```
+- Verify that the correct configurations has been generated :
+```sh
+cat prometheus.yml
+```
+- Run prometheus :
+```sh
+./prometheus
+```
+
+Let's open another terminal and follow the steps below to run grafana :
+- Change current directory to grafana directory:
+```sh
+cd /opt/grafana*
+```
+- Run grafana :
+```sh
+./bin/grafana-server
+```
