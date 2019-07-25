@@ -1,12 +1,12 @@
-# Dgraph Prometheus
+# Dgraph Prometheus Grafana
 
 Follow the steps below to setup prometheus for your Dgraph cluster :
 
 - Clone this repository and change the directory.
 ```sh
-git clone https://github.com/prashant-shahi/dgraph-prometheus.git
+git clone https://github.com/prashant-shahi/dgraph-prometheus-grafana.git
 
-cd dgraph-prometheus
+cd dgraph-prometheus-grafana
 ```
 - Open **configrations.json** in your favourite text editor and modify the file if required.
 ```sh

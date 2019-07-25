@@ -1,21 +1,26 @@
 #!/bin/sh
 
 PROMETHEUS_VERSION="2.11.1"
+GRAFANA_VERSION="6.2.5"
 
 wget https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-$PROMETHEUS_VERSION.linux-amd64.tar.gz
-tar -xzvf prometheus-$PROMETHEUS_VERSION.linux-amd64.tar.gz
-sudo mv prometheus-$PROMETHEUS_VERSION.linux-amd64.tar.gz /opt/
+sudo tar  -C /opt/ -xzvf prometheus-$PROMETHEUS_VERSION.linux-amd64.tar.gz
+wget https://dl.grafana.com/oss/release/grafana-$GRAFANA_VERSION.linux-amd64.tar.gz 
+sudo tar -C /opt/ -xzvf grafana-$GRAFANA_VERSION.linux-amd64.tar.gz
+sudo chgrp -R prashant:prashant /opt/prometheus-$PROMETHEUS_VERSION.linux-amd64
+sudo chgrp -R prashant:prashant /opt/grafana-$GRAFANA_VERSION
 sudo ln -s /opt/prometheus-$PROMETHEUS_VERSION.linux-amd64/prometheus /usr/local/bin/
+sudo ln -s /opt/grafana-$GRAFANA_VERSION.linux-amd64/bin/grafana-server /usr/local/bin/
 
 if [ -e configurations.json ]
 then
-	CONFIGURATION=$(cat ./configurations.json)
+    CONFIGURATION=$(cat ./configurations.json)
     JOB=$(echo $CONFIGURATION | python -c 'import sys, json; print json.load(sys.stdin)["job_name"]')
     METRICS_PATH=$(echo $CONFIGURATION | python -c 'import sys, json; print json.load(sys.stdin)["metrics_path"]')
     SCRAPE_INTERVAL=$(echo $CONFIGURATION | python -c 'import sys, json; print json.load(sys.stdin)["scrape_interval"]')
     ENDPOINTS=$(echo $CONFIGURATION | python -c 'import sys, json; endpoints=json.load(sys.stdin)["endpoints"]; print([x.encode("utf-8") for x in endpoints])')
 else
-	JOB=dgraph
+    JOB=dgraph
     METRICS_PATH="/debug/prometheus_metrics"
     SCRAPE_INTERVAL="2s"
     ENDPOINTS="["localhost:6080","localhost:8080"]"
