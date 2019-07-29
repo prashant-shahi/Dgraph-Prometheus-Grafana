@@ -30,25 +30,26 @@ sudo ./install.sh
 
 Follow the steps below to run prometheus :
 
-- Change current directory to prometheus directory:
+- Change current directory to prometheus directory.
 ```sh
 cd /opt/prometheus*
 ```
-- Verify that the correct configurations has been generated :
+- Verify that the correct configurations has been generated.
 ```sh
 cat prometheus.yml
 ```
-- Run prometheus :
+- Run prometheus.
 ```sh
 ./prometheus
 ```
 
 Let's open another terminal and follow the steps below to run grafana :
-- Change current directory to grafana directory:
+
+- Change current directory to grafana directory.
 ```sh
 cd /opt/grafana*
 ```
-- Run grafana :
+- Run grafana.
 ```sh
 ./bin/grafana-server
 ```
