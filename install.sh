@@ -34,26 +34,18 @@ global:
 
 # A scrape configuration containing exactly one endpoint to scrape:
 scrape_configs:
-">prometheus.yml
 
-echo "
   # The job name is set to Dgraph.
   - job_name: $JOB
-">>prometheus.yml
 
-echo "
     # The metrics_path is set to '/debug/prometheus_metrics' than the default '/metrics'.
     metrics_path: $METRICS_PATH
-">>prometheus.yml
 
-echo "
     # Scraping interval is set to 2 seconds.
     scrape_interval: $SCRAPE_INTERVAL
-">>prometheus.yml
 
-echo "
     static_configs:
     - targets: $ENDPOINTS
-">>prometheus.yml
+">prometheus.yml
 
 sudo mv prometheus.yml /opt/prometheus-$PROMETHEUS_VERSION.linux-amd64/
