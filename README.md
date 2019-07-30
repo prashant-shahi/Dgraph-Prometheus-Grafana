@@ -1,4 +1,6 @@
-# Install Prometheus and Grafana
+# Dgraph-Prometheus-Grafana
+
+Instructions to setup Prometheus and Grafana for a Dgraph cluster.
 
 ## Installation
 
