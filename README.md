@@ -1,4 +1,4 @@
-# Dgraph Prometheus Grafana
+# Install Prometheus and Grafana
 
 ## Installation
 
